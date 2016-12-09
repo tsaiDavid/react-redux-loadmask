@@ -8,5 +8,23 @@
     "type": "git"
   },
   "author": "David Tsai <david@whataniceguy.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react": "^15.4.1",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.20.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.9",
+    "babel-preset-latest": "^6.16.0",
+    "eslint": "^3.12.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-config-standard-react": "^4.2.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-react": "^6.8.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "standard": "^8.6.0"
+  }
 }
