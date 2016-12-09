@@ -1,0 +1,12 @@
+{
+  "name": "react-redux-loadmask",
+  "version": "1.0.0",
+  "description": "A React / Redux Loading Mask",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/tsaiDavid/react-redux-loadmask.git",
+    "type": "git"
+  },
+  "author": "David Tsai <david@whataniceguy.com>",
+  "license": "MIT"
+}
