@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import loadmaskStyles from './shared/styles'
+import loadmaskStyles from '../shared/styles'
 
 class Loadmask extends Component {
   static propTypes = {
@@ -16,10 +16,10 @@ class Loadmask extends Component {
   }
 }
 
-function mapStateToProps (state) {
+function mapImmutableStateToProps ($$state) {
   return {
-    showLoadmask: state.loadmaskReducer.showLoadmask
+    showLoadmask: $$state.getIn(['loadmaskReducer', 'showLoadmask'])
   }
 }
 
-export default connect(mapStateToProps)(Loadmask)
+export default connect(mapImmutableStateToProps)(Loadmask)

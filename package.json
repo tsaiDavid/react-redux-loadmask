@@ -2,11 +2,24 @@
   "name": "react-redux-loadmask",
   "version": "1.0.0",
   "description": "A React / Redux Loading Mask",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "scripts": {
+    "clean": "rimraf lib dist",
+    "prepublish": "npm run clean && npm run build",
+    "build": "npm run build:lib && node ./prepublish",
+    "build:lib": "babel src --out-dir lib",
+    "build:umd": "cross-env NODE_ENV=development webpack src/index.js dist/react-redux-loadmask.js",
+    "build:umd:min": "cross-env NODE_ENV=production webpack src/index.js dist/react-redux-loadmask.min.js"
+  },
   "repository": {
     "url": "https://github.com/tsaiDavid/react-redux-loadmask.git",
     "type": "git"
   },
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
   "author": "David Tsai <david@whataniceguy.com>",
   "license": "MIT",
   "dependencies": {
@@ -21,12 +34,18 @@
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
+    "cross-env": "^3.1.3",
+    "es3ify": "^0.2.2",
     "eslint": "^3.12.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-config-standard-react": "^4.2.0",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-react": "^6.8.0",
     "eslint-plugin-standard": "^2.0.1",
-    "standard": "^8.6.0"
+    "immutable": "^3.8.1",
+    "react-redux": "^4.4.6",
+    "rimraf": "^2.5.4",
+    "standard": "^8.6.0",
+    "webpack": "^1.14.0"
   }
 }
