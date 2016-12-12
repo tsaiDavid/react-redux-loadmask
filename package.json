@@ -2,12 +2,15 @@
   "name": "react-redux-loadmask",
   "version": "1.0.3",
   "description": "A React / Redux Loading Mask",
-  "main": "./lib/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "clean": "rimraf lib",
+    "clean": "rimraf lib dist",
     "prepublish": "npm run clean && npm run build",
-    "build": "npm run build:lib && node ./prepublish",
-    "build:lib": "babel src --out-dir lib"
+    "build": "npm run build:lib && npm run build:umd && npm run build:umd:min && node ./prepublish",
+    "build:lib": "babel src --out-dir lib",
+    "build:umd": "cross-env NODE_ENV=development webpack src/index.js dist/react-redux-loadmask.js",
+    "build:umd:min": "cross-env NODE_ENV=production webpack src/index.js dist/react-redux-loadmask.min.js",
+    "lint": "eslint ."
   },
   "repository": {
     "url": "https://github.com/tsaiDavid/react-redux-loadmask.git",
@@ -40,5 +43,8 @@
     "react": "^0.14.0 || ^15.0.0-0 || ^15.4.0-0",
     "react-redux": "^4.0.0",
     "redux": "^2.0.0 || ^3.0.0"
+  },
+  "dependencies": {
+    "eslint-config-standard-react": "^4.2.0"
   }
 }
