@@ -4,7 +4,7 @@
   "description": "A React / Redux Loading Mask",
   "main": "./lib/index.js",
   "scripts": {
-    "clean": "rimraf lib dist",
+    "clean": "rimraf lib",
     "prepublish": "npm run clean && npm run build",
     "build": "npm run build:lib && node ./prepublish",
     "build:lib": "babel src --out-dir lib"
@@ -13,10 +13,6 @@
     "url": "https://github.com/tsaiDavid/react-redux-loadmask.git",
     "type": "git"
   },
-  "files": [
-    "lib",
-    "src"
-  ],
   "author": "David Tsai <david@whataniceguy.com>",
   "license": "MIT",
   "devDependencies": {
