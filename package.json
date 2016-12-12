@@ -22,10 +22,7 @@
   ],
   "author": "David Tsai <david@whataniceguy.com>",
   "license": "MIT",
-  "dependencies": {
-    "react": "^15.4.1",
-    "redux": "^3.6.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.20.0",
@@ -42,10 +39,14 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-react": "^6.8.0",
     "eslint-plugin-standard": "^2.0.1",
-    "immutable": "^3.8.1",
-    "react-redux": "^4.4.6",
     "rimraf": "^2.5.4",
     "standard": "^8.6.0",
     "webpack": "^1.14.0"
+  },
+  "peerDependencies": {
+    "immutable": "^3.8.1",
+    "react": "^15.4.1",
+    "react-redux": "^4.4.6",
+    "redux": "^3.6.0"
   }
 }
