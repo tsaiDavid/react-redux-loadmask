@@ -7,22 +7,18 @@
     "clean": "rimraf lib dist",
     "prepublish": "npm run clean && npm run build",
     "build": "npm run build:lib && node ./prepublish",
-    "build:lib": "babel src --out-dir lib",
-    "build:umd": "cross-env NODE_ENV=development webpack src/index.js dist/react-redux-loadmask.js",
-    "build:umd:min": "cross-env NODE_ENV=production webpack src/index.js dist/react-redux-loadmask.min.js"
+    "build:lib": "babel src --out-dir lib"
   },
   "repository": {
     "url": "https://github.com/tsaiDavid/react-redux-loadmask.git",
     "type": "git"
   },
   "files": [
-    "dist",
     "lib",
     "src"
   ],
   "author": "David Tsai <david@whataniceguy.com>",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.20.0",
