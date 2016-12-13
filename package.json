@@ -1,6 +1,6 @@
 {
   "name": "react-redux-loadmask",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A React / Redux Loading Mask",
   "main": "lib/index.js",
   "scripts": {
@@ -12,6 +12,12 @@
     "build:umd:min": "cross-env NODE_ENV=production webpack src/index.js dist/react-redux-loadmask.min.js",
     "lint": "eslint ."
   },
+  "files": [
+    "lib",
+    "dist",
+    "README.md",
+    "immutable.js"
+  ],
   "repository": {
     "url": "https://github.com/tsaiDavid/react-redux-loadmask.git",
     "type": "git"

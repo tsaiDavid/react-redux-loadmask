@@ -1,5 +1,5 @@
 const loadmaskStyles = {
-  position: 'absolute',
+  position: 'fixed',
   zIndex: 99999,
   top: 0,
   bottom: 0,
