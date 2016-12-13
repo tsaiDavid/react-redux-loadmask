@@ -1,6 +1,6 @@
 import Loadmask from './Loadmask.immutable'
-import { loadmaskActions } from '../shared/actions'
+import { loadmaskActions, showLoadmask, hideLoadmask } from '../shared/actions'
 import { loadmaskReducer } from './reducer.immutable'
 
-export { loadmaskActions, loadmaskReducer }
+export { loadmaskActions, showLoadmask, hideLoadmask, loadmaskReducer }
 export default Loadmask
