@@ -84,3 +84,32 @@ Keep in mind that only the `<Loadmask />` component and this function have and r
   ```
 
   4. And that's it! By utilizing the provided reducer and simply rendering the `<Loadmask />` component, you're now able to conveniently manage this top-level UI to enhance browsing experience during large data fetches, page transitions, or even preventing access to a view.
+
+## Extras
+
+Spinkit was just added!
+
+To use this, provide the following object to the `spinner` prop on `<Loadmask />`:
+
+```jsx
+/* Here's an example */
+
+const spinnerOptions = { size: 50, name: 'FoldingCube' }
+
+<Loadmask spinner={spinnerOptions} />
+```
+
+The following are available as options to the name property:
+```javascript
+'ChasingDots',
+'Circle',
+'CubeGrid',
+'DoubleBounce',
+'FadingCircle',
+'FoldingCube',
+'Pulse',
+'RotatingPlane',
+'ThreeBounce',
+'WanderingCubes',
+'Wave'
+```
