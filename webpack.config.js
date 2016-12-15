@@ -2,6 +2,7 @@
 
 var webpack = require('webpack')
 var env = process.env.NODE_ENV
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 var reactExternal = {
   root: 'React',
@@ -32,7 +33,14 @@ var config = {
   },
   module: {
     loaders: [
-      { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ }
+      { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract(
+          'style?sourceMap',
+          'css-loader'
+        )
+      }
     ]
   },
   output: {
@@ -51,6 +59,9 @@ var config = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env)
+    }),
+    new ExtractTextPlugin('loadmask.css', {
+      allChunks: true
     })
   ]
 }

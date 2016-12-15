@@ -1,0 +1,21 @@
+.__react-redux-loadmask-spinner__ div {
+  background-color: white;
+}
+
+.__loadmask-enter {
+  opacity: 0.01;
+}
+
+.__loadmask-enter.__loadmask-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.__loadmask-leave {
+  opacity: 1;
+}
+
+.__loadmask-leave.__loadmask-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
