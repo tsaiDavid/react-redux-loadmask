@@ -38,7 +38,7 @@ as indicated above.
 
 1. Import the <Loadmask /> component and render it within a higher order container. This could be your app's "Main.js" or "App.js".
 
-  ```javascript
+  ```jsx
   import React, { Component } from 'react'
   import Loadmask from 'react-redux-loadmask'
 
@@ -58,7 +58,7 @@ as indicated above.
 2. Import and combine `loadmaskReducer` into your app's "root reducer" (top level).
 Keep in mind that only the `<Loadmask />` component and this function have and require its Immutable variants if your state is utilizing it. (see table above)
 
-  ```javascript
+  ```jsx
   import { loadmaskReducer } from 'react-redux-loadmask'
 
   export default combineReducers({
@@ -69,14 +69,14 @@ Keep in mind that only the `<Loadmask />` component and this function have and r
 
 3. Use the actions `showLoadmask` and `hideLoadmask` provided. They utilize namespaced "types", inspired by the `react-redux-router` library. Examples of how you can use them are shown below.
 
-  ```javascript
+  ```jsx
     import { showLoadmask, hideLoadmask } from 'react-redux-loadmask'
 
     // You can then dispatch to either show or hide the loadmask from anywhere!
     dispatch(showLoadmask())
   ```
 
-  ```javascript
+  ```jsx
     import { loadmaskActions } from 'react-redux-loadmask'
 
     // The same methods are available for you off the `loadmaskActions` import
