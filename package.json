@@ -10,7 +10,8 @@
     "build:lib": "babel src --out-dir lib",
     "build:umd": "cross-env NODE_ENV=development webpack src/index.js dist/react-redux-loadmask.js",
     "build:umd:min": "cross-env NODE_ENV=production webpack src/index.js dist/react-redux-loadmask.min.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "dev": "webpack-dev-server --config webpack.config.dev.js"
   },
   "files": [
     "lib",
@@ -43,10 +44,17 @@
     "eslint-plugin-react": "^6.8.0",
     "eslint-plugin-standard": "^2.0.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.24.1",
+    "immutable": "^3.8.1",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
     "rimraf": "^2.5.4",
     "standard": "^8.6.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.14.0"
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
   },
   "peerDependencies": {
     "immutable": "^3.0.0",
