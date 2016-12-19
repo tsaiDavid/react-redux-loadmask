@@ -1,58 +1,32 @@
-import React, { PureComponent, PropTypes } from 'react'
+import React, { PureComponent, PropTypes, Children } from 'react'
 import { connect } from 'react-redux'
 import styles from './shared/styles'
 
 export class Loadmask extends PureComponent {
   static propTypes = {
-    showLoadmask: PropTypes.bool,
+    showLoadmask: PropTypes.array,
     bgColor: PropTypes.string,
-    /* eslint-disable */
-    spinner: PropTypes.shape({
-      size: PropTypes.number,
-      color: PropTypes.string,
-      name: PropTypes.oneOf([
-        'ChasingDots',
-        'Circle',
-        'CubeGrid',
-        'DoubleBounce',
-        'FadingCircle',
-        'FoldingCube',
-        'Pulse',
-        'RotatingPlane',
-        'ThreeBounce',
-        'WanderingCubes',
-        'Wave'
-      ]).isRequired
-    })
-    /* eslint-enable */
+    children: PropTypes.element
   }
 
   static defaultProps = {
-    bgColor: 'rgba(0,0,0,0.85)'
+    bgColor: '#424242'
   }
 
-  renderSpinner = () => {
-    const { spinner } = this.props
-
-    if (spinner) {
-      const LoadmaskSpinner = require('better-react-spinkit')[spinner.name]
-      return (
-        <LoadmaskSpinner
-          color={spinner.color || 'white'}
-          size={spinner.size || 50}
-        />
-      )
-    }
+  renderChildren = () => {
+    const { children } = this.props
+    if (!children) return <noscript />
+    return Children.only(children)
   }
 
   render () {
-    const { showLoadmask, bgColor } = this.props
+    const { bgColor, showLoadmask } = this.props
 
-    if (!showLoadmask) return <noscript />
+    if (showLoadmask.length === 0) return <noscript />
 
     return (
       <div id='__react-redux-loadmask__' style={styles.loadmask(bgColor)}>
-        {this.renderSpinner()}
+        {this.renderChildren()}
       </div>
     )
   }
