@@ -1,6 +1,11 @@
 # react-redux-loadmask
 
-## Requirements
+## About
+
+If you're looking for a simple to use "loading mask" to be used with your React + Redux application, look no further! This module provides you with:
+  * a reducer, a couple of actions, and the `<Loadmask />` component itself
+  * the ability to trigger said actions anywhere in your app to show or hide the loadmask
+  * support for rendering a single child, with a simple prop to change the background color
 
 ##### Peer dependencies are currently as follows:
   - `immutable`
