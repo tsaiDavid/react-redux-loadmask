@@ -8,13 +8,15 @@
   - `react-redux`
   - `immutable` [ optional - depends on your app state ]
 
-## Installing
+## Installation
 
+**NPM**
 ```
-// via npm
 $ npm install react-redux-loadmask --save
+```
 
-// via yarn
+**Yarn**
+```
 $ yarn add react-redux-loadmask
 ```
 
@@ -34,7 +36,7 @@ There are a few 'parts' provided out of the box for you:
 > `*` The Loadmask component and its corresponding reducer are available in the Immutable.js flavors,
 as indicated above.
 
----
+## Example
 
 1. Import the <Loadmask /> component and render it within a higher order container. This could be your app's "Main.js" or "App.js".
 
