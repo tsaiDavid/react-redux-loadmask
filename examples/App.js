@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import Loadmask, { showLoadmask } from '../lib'
+import Loadmask, { showLoadmask, hideLoadmask } from '../lib'
 import { connect } from 'react-redux'
 
 class App extends Component {
@@ -12,9 +12,15 @@ class App extends Component {
   }
 
   render () {
+    window.hide = () => {
+      this.props.dispatch(hideLoadmask())
+    }
+
     return (
       <div>
-        <Loadmask />
+        <Loadmask bgColor='red'>
+          <h2>Demo Loadmask</h2>
+        </Loadmask>
         <button onClick={this.show}>
           Show Mask
         </button>
