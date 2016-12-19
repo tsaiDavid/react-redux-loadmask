@@ -63,7 +63,6 @@
     "redux": "^2.0.0 || ^3.0.0"
   },
   "dependencies": {
-    "better-react-spinkit": "^2.0.0-4",
     "inline-style-prefixer": "^2.0.5"
   }
 }
