@@ -1,7 +1,9 @@
-import prefixAll from 'inline-style-prefixer/static'
+import Prefixer from 'inline-style-prefixer'
+
+const prefixer = new Prefixer()
 
 const loadmaskStyles = (bgColor) => {
-  return prefixAll({
+  return prefixer({
     alignItems: 'center',
     backgroundColor: bgColor || '#424242',
     display: 'flex',
