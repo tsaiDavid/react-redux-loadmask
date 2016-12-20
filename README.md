@@ -1,6 +1,11 @@
 # react-redux-loadmask
 
-## Requirements
+## About
+
+If you're looking for a simple to use "loading mask" to be used with your React + Redux application, look no further! This module provides you with:
+  * a reducer, a couple of actions, and the `<Loadmask />` component itself
+  * the ability to trigger said actions anywhere in your app to show or hide the loadmask
+  * support for rendering a single child, with a simple prop to change the background color
 
 ##### Peer dependencies are currently as follows:
   - `immutable`
@@ -8,13 +13,15 @@
   - `react-redux`
   - `immutable` [ optional - depends on your app state ]
 
-## Installing
+## Installation
 
+**NPM**
 ```
-// via npm
 $ npm install react-redux-loadmask --save
+```
 
-// via yarn
+**Yarn**
+```
 $ yarn add react-redux-loadmask
 ```
 
@@ -34,7 +41,7 @@ There are a few 'parts' provided out of the box for you:
 > `*` The Loadmask component and its corresponding reducer are available in the Immutable.js flavors,
 as indicated above.
 
----
+## Example
 
 1. Import the <Loadmask /> component and render it within a higher order container. This could be your app's "Main.js" or "App.js".
 
@@ -85,31 +92,12 @@ Keep in mind that only the `<Loadmask />` component and this function have and r
 
   4. And that's it! By utilizing the provided reducer and simply rendering the `<Loadmask />` component, you're now able to conveniently manage this top-level UI to enhance browsing experience during large data fetches, page transitions, or even preventing access to a view.
 
-## Extras
+## Rendering Children
 
-Spinkit was just added!
-
-To use this, provide the following object to the `spinner` prop on `<Loadmask />`:
+In the likely event that you'll want to render your own child in the middle of the Loadmask, you can do so by simply wrapping the intended child with the Loadmask tags.
 
 ```jsx
-/* Here's an example */
-
-const spinnerOptions = { size: 50, name: 'FoldingCube' }
-
-<Loadmask spinner={spinnerOptions} />
-```
-
-The following are available as options to the name property:
-```javascript
-'ChasingDots',
-'Circle',
-'CubeGrid',
-'DoubleBounce',
-'FadingCircle',
-'FoldingCube',
-'Pulse',
-'RotatingPlane',
-'ThreeBounce',
-'WanderingCubes',
-'Wave'
+  <Loadmask>
+    <ExampleChild />
+  </Loadmask>
 ```
