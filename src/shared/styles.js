@@ -3,7 +3,7 @@ import Prefixer from 'inline-style-prefixer'
 const prefixer = new Prefixer()
 
 const loadmaskStyles = (bgColor) => {
-  return prefixer({
+  return prefixer.prefix({
     alignItems: 'center',
     backgroundColor: bgColor || '#424242',
     display: 'flex',
