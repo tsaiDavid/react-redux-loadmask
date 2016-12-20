@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes, Children } from 'react'
 import { List } from 'immutable'
 import { connect } from 'react-redux'
-import styles from '../shared/styles'
+import loadmaskStyles from '../shared/styles'
 
 export class Loadmask extends PureComponent {
   static propTypes = {
@@ -27,7 +27,7 @@ export class Loadmask extends PureComponent {
     if ($$showLoadmask.size === 0) return <noscript />
 
     return (
-      <div id='__react-redux-loadmask__' style={styles.loadmask(bgColor)}>
+      <div id='__react-redux-loadmask__' style={loadmaskStyles(bgColor)}>
         {this.renderChildren()}
       </div>
     )
