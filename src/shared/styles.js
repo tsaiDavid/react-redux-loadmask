@@ -7,6 +7,7 @@ const loadmaskStyles = (bgColor) => {
     alignItems: 'center',
     backgroundColor: bgColor || '#424242',
     display: 'flex',
+    flexDirection: 'column',
     height: '100%',
     justifyContent: 'center',
     position: 'fixed',
