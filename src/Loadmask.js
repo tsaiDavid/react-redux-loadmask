@@ -14,12 +14,6 @@ export class Loadmask extends PureComponent {
     bgColor: '#424242'
   }
 
-  willEnter = () => {
-    return {
-      opacity: 0
-    }
-  }
-
   willLeave = () => {
     return {
       opacity: spring(0, presets.gentle)
@@ -33,7 +27,7 @@ export class Loadmask extends PureComponent {
       return [{
         key: 'child',
         data: {},
-        style: { opacity: spring(1, presets.gentle) }
+        style: { opacity: spring(1) }
       }]
     } else {
       return []
@@ -46,12 +40,11 @@ export class Loadmask extends PureComponent {
     return (
       <TransitionMotion
         styles={this.getStyles()}
-        willEnter={this.willEnter}Í
         willLeave={this.willLeave}
       >
         {(items) => {
           return (
-            <div>
+            <div style={{position: 'relative', zIndex: 2000000}}>
               {items.map(item => {
                 return (
                   <div key={item.key} className='box' style={{opacity: item.style.opacity}}>
