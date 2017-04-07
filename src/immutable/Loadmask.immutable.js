@@ -1,42 +1,78 @@
-import React, { PureComponent, PropTypes, Children } from 'react'
-import { List } from 'immutable'
+import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { TransitionMotion, spring, presets } from 'react-motion'
 import loadmaskStyles from '../shared/styles'
 
 export class Loadmask extends PureComponent {
   static propTypes = {
     // We prefix Immutable instances with `$$`
-    $$showLoadmask: PropTypes.instanceOf(List),
+    $$showLoadmask: PropTypes.bool,
     bgColor: PropTypes.string,
-    children: PropTypes.element
+    children: PropTypes.any
   }
 
   static defaultProps = {
     bgColor: '#424242'
   }
 
-  renderChildren = () => {
-    const { children } = this.props
-    if (!children) return <noscript />
-    return Children.only(children)
+  willEnter = () => {
+    return {
+      opacity: 0
+    }
+  }
+
+  willLeave = () => {
+    return {
+      opacity: spring(0, presets.gentle)
+    }
+  }
+
+  getStyles = () => {
+    const { $$showLoadmask } = this.props
+
+    if ($$showLoadmask) {
+      return [{
+        key: 'child',
+        data: {},
+        style: { opacity: spring(1, presets.gentle) }
+      }]
+    } else {
+      return []
+    }
   }
 
   render () {
-    const { bgColor, $$showLoadmask } = this.props
-
-    if ($$showLoadmask.size === 0) return <noscript />
+    const { bgColor } = this.props
 
     return (
-      <div id='__react-redux-loadmask__' style={loadmaskStyles(bgColor)}>
-        {this.renderChildren()}
-      </div>
+      <TransitionMotion
+        styles={this.getStyles()}
+        willEnter={this.willEnter}Í
+        willLeave={this.willLeave}
+      >
+        {(items) => {
+          return (
+            <div>
+              {items.map(item => {
+                return (
+                  <div key={item.key} className='box' style={{opacity: item.style.opacity}}>
+                    <div id='__react-redux-loadmask__' style={loadmaskStyles(bgColor)}>
+                      <div>{this.props.children}</div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          )
+        }}
+      </TransitionMotion>
     )
   }
 }
 
 function mapImmutableStateToProps ($$state) {
   return {
-    $$showLoadmask: $$state.getIn(['loadmaskReducer', 'showLoadmask'])
+    $$showLoadmask: $$state.getIn(['loadmaskReducer', 'showLoadmask']).size > 0
   }
 }
 

@@ -63,6 +63,7 @@
     "redux": "^2.0.0 || ^3.0.0"
   },
   "dependencies": {
-    "inline-style-prefixer": "^2.0.5"
+    "inline-style-prefixer": "^2.0.5",
+    "react-motion": "^0.4.7"
   }
 }

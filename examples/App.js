@@ -9,17 +9,19 @@ class App extends Component {
 
   show = () => {
     this.props.dispatch(showLoadmask())
+    // Simulate a 2500ms load
+    setTimeout(this.hide, 2500)
+  }
+
+  hide = () => {
+    this.props.dispatch(hideLoadmask())
   }
 
   render () {
-    window.hide = () => {
-      this.props.dispatch(hideLoadmask())
-    }
-
     return (
       <div>
-        <Loadmask bgColor='red'>
-          <h2>Demo Loadmask</h2>
+        <Loadmask bgColor='lightblue'>
+          <h2>Demo Loadmask - Content Loading</h2>
         </Loadmask>
         <button onClick={this.show}>
           Show Mask
